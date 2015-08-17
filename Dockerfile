@@ -21,6 +21,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         openssl \
         python-virtualenv \
         python3-dev \
+        liblz4-1 \
+        python-lz4 \
     && apt-get clean -y
 
 RUN git clone git://github.com/wallyhall/shini.git \
