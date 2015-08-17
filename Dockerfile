@@ -21,7 +21,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         openssl \
         python-virtualenv \
         python3-dev \
-        liblz4-1 \
+        liblz4-dev \
         python-lz4 \
     && apt-get clean -y
 
