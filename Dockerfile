@@ -21,8 +21,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         openssl \
         python-virtualenv \
         python3-dev \
-        liblz4-dev \
-        python-lz4 \
+    #    liblz4-dev \
+    #    python-lz4 \
     && apt-get clean -y
 
 RUN git clone git://github.com/wallyhall/shini.git \
@@ -40,6 +40,6 @@ RUN chmod a+x /usr/bin/borgctrl.sh
 
 # the "git clone" is cached, we need to invalidate the docker cache here
 ADD http://www.random.org/strings/?num=1&len=10&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
-RUN git clone https://github.com/borgbackup/borg.git borg-git -b master; \
+RUN git clone https://github.com/borgbackup/borg.git borg -b 0.24.0; \
     . borg-env/bin/activate ; \
-    pip install -e borg-git
+    pip install -e borg
