@@ -41,8 +41,8 @@ RUN chmod a+x /usr/bin/borgctrl.sh
 # the "git clone" is cached, we need to invalidate the docker cache here
 ADD http://www.random.org/strings/?num=1&len=10&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
 RUN git clone https://github.com/borgbackup/borg.git borg -b master; \
-    && cd borg \
+    && cd borg ; \
     && git checkout `git tag | sort -V | tail -1`; \
-    && cd ..
+    && cd .. ; \
     . borg-env/bin/activate ; \
     pip install -e borg
