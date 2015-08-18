@@ -1,6 +1,7 @@
 FROM debian:jessie
 
-MAINTAINER Silvio Fricke <silvio.fricke@gmail.com>
+MAINTAINER Alphazo <alphazo@gmail.com>
+# Original Dockerfile from Silvio Fricke <silvio.fricke@gmail.com>
 
 VOLUME /B /backupdir
 WORKDIR /borg
