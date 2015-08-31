@@ -1,4 +1,3 @@
-
 This docker project brings the small and simple backup solution [borg] to your
 computer.
 
@@ -29,11 +28,11 @@ script for the shell.
 ### Example
 
 ```bash
-$ docker run --rm -ti -v /storage/backup:/backupdir -v /home/xxx:/B/xxx docker-borgbackup init /backupdir
+$ docker run --rm -ti -v /storage/backup:/backupdir -v /home/xxx:/sourcedir/xxx docker-borgbackup init /backupdir
 [...]
-$ docker run --rm -ti -v /storage/backup:/backupdir -v /home/xxx:/B/xxx docker-borgbackup create -p /backupdir::/home/xxx /B/xxx
+$ docker run --rm -ti -v /storage/backup:/backupdir -v /home/xxx:/sourcedir/xxx docker-borgbackup create -p /backupdir::/home/xxx /sourcedir/xxx
 [...]
-$ docker run --rm -ti -v /tmp/backup:/backupdir -v /development/gitarchives/sbc:/B/sbc docker-borgbackup list /backupdir
+$ docker run --rm -ti -v /tmp/backup:/backupdir -v /development/gitarchives/sbc:/sourcedir/sbc docker-borgbackup list /backupdir
 /xxx                                 Thu Aug 13 12:41:40 2015
 ```
 
@@ -50,7 +49,7 @@ a configuration file for automation of the backup process via a cron job. For
 this we use docker specific options.
 
 All folders or files and the configuration file for the backup have to be
-mounted in the `/B` folder.
+mounted in the `/sourcedir` folder.
 
 The store folder for the backup have to be in `/backupdir`.
 
@@ -89,6 +88,6 @@ archive creation time. The name of the `ini`-file entries are regardless.
 ## example
 
 ```bash
-$ docker run -ti -v /etc:/B/etc -v ~/borg-backup.ini:/B/borg-backup.ini -v /mnt/ext/BACKUP:/backupdir docker-borgbackup init /backupdir
-$ docker run -ti -v /etc:/B/etc -v ~/borg-backup.ini:/B/borg-backup.ini -v /mnt/ext/BACKUP:/backupdir docker-borgbackup create /backupdir::xxx /B/...
+$ docker run -ti -v /etc:/sourcedir/etc -v ~/borg-backup.ini:/sourcedir/borg-backup.ini -v /mnt/ext/BACKUP:/backupdir docker-borgbackup init /backupdir
+$ docker run -ti -v /etc:/sourcedir/etc -v ~/borg-backup.ini:/sourcedir/borg-backup.ini -v /mnt/ext/BACKUP:/backupdir docker-borgbackup create /backupdir::xxx /sourcedir/...
 ```
