@@ -3,7 +3,7 @@ FROM debian:jessie
 MAINTAINER Alphazo <alphazo@gmail.com>
 # Original Dockerfile from Silvio Fricke <silvio.fricke@gmail.com>
 
-VOLUME /B /backupdir
+VOLUME /sourcedir /backupdir
 WORKDIR /borg
 
 ENTRYPOINT ["/usr/bin/borgctrl.sh"]
