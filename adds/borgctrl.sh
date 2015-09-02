@@ -4,7 +4,7 @@ source borg-env/bin/activate
 
 SCRIPTVERSION=1
 
-INIFILE=/B/borg-backup.ini
+INIFILE=/sourcedir/borg-backup.ini
 BACKUPREPO=""
 BACKUPNAME=""
 DATEAPPEND=""
@@ -35,7 +35,7 @@ __shini_parsed () {
 
 		"EXCLUDE")
 			pattern="${3}"
-			[[ "${pattern:0:1}" == "/" ]] && pattern="/B${pattern}"
+			[[ "${pattern:0:1}" == "/" ]] && pattern="/sourcedir${pattern}"
 			export EXCLUDE="${EXCLUDE} --exclude ${pattern}"
 			;;
 
@@ -78,7 +78,7 @@ if [[ "$1" == "mybackup" ]]; then
 	backuppathes=""
 	backupdir="/backupdir"
 
-	for i in /B/*
+	for i in /sourcedir/*
 	do
 		backuppathes="${backuppathes} ${i}"
 	done
