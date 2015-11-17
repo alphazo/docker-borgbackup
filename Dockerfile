@@ -3,7 +3,7 @@ FROM debian:jessie
 MAINTAINER Alphazo <alphazo@gmail.com>
 # Original Dockerfile from Silvio Fricke <silvio.fricke@gmail.com>
 
-# Updated to v0.28.1
+# Updated to v0.28.2
 
 VOLUME /sourcedir /backupdir
 WORKDIR /borg
